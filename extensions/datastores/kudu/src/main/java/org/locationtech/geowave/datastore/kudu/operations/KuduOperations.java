@@ -358,4 +358,9 @@ public class KuduOperations implements MapReduceDataStoreOperations {
     return Lists.newArrayList(deletions);
   }
 
+  public BatchedWrite getBatchedWrite(final Index index) {
+    createTable(index.getName(), index.getIndexStrategy().getPredefinedSplits().length);
+    return new BatchedWrite(index.getName(), this);
+  }
+
 }
