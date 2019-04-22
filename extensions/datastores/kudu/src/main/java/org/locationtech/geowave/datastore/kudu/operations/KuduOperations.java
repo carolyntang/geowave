@@ -359,7 +359,7 @@ public class KuduOperations implements MapReduceDataStoreOperations {
   }
 
   public BatchedWrite getBatchedWrite(final Index index) {
-    createTable(index.getName(), index.getIndexStrategy().getPredefinedSplits().length);
+    createIndexTable(index.getName(), index.getIndexStrategy().getPredefinedSplits().length);
     return new BatchedWrite(index.getName(), this);
   }
 
